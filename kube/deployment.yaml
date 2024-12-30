@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secwebapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secwebapp
+  template:
+    metadata:
+      labels:
+        app: secwebapp
+    spec:
+      containers:
+      - name: secwebapp-container
+        image: samsupriyo/imgpyfastapi:v1
+        ports:
+        - containerPort: 80
